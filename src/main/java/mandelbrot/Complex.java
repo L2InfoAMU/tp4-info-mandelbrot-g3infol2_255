@@ -133,7 +133,7 @@ public class Complex {
      * @return <code>||this|| ** 2</code>
      */
     double squaredModulus() {
-        return real * real * imaginary * imaginary;
+        return real * real + imaginary * imaginary;
     }
 
     /**
@@ -156,8 +156,10 @@ public class Complex {
             throw new ArithmeticException("divide by zero");
         }
         double m = squaredModulus();
-        return new Complex(real / m, imaginary / m);
+        return new Complex(real / m, -imaginary / m);
     }
+
+
 
     /**
      * Division of two complex numbers
